@@ -17,7 +17,7 @@ const Layout = ({
         {description && <meta name="description" content={description} />}
       </Head>
       <article>
-        <header className={styles.header}>
+        <header>
           <Link href={"/"}>Newsapi</Link>
           <NavBar />
         </header>

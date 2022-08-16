@@ -1,8 +1,5 @@
 import Layout from "../components/Layout";
 
-import Image from "next/future/image";
-import styles from "../styles/Home.module.css";
-
 export default function Home({ articles }) {
   return (
     <Layout title="News App - Home" description="articles description" footer>
