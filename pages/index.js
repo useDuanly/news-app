@@ -6,15 +6,15 @@ import styles from "../styles/Home.module.css";
 export default function Home({ articles }) {
   return (
     <Layout title="News App - Home" description="articles description" footer>
-      <div className={styles.container}>
+      <div>
         {articles.length === 0 && <p>No tenemos articulos</p>}
         {articles.map((el, i) => (
-          <article key={i}>
+          <div key={i}>
             <h2>{el.title}</h2>
             <p>Author: {el.author}</p>
             <img src={el.urlToImage} alt={`images title ${el.title}`} />
             <p>{el.description}</p>
-          </article>
+          </div>
         ))}
       </div>
     </Layout>
