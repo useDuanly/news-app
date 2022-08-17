@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
-
-export default function Home({ articles }) {
+import Image from "next/image";
+import { env } from "../next.config";
+export default function Home({ articles, error }) {
+  console.log(error);
   return (
     <Layout title="News App - Home" description="articles description" footer>
       <div>
@@ -8,8 +10,23 @@ export default function Home({ articles }) {
         {articles.map((el, i) => (
           <div key={i}>
             <h2>{el.title}</h2>
-            <p>Author: {el.author}</p>
-            <img src={el.urlToImage} alt={`images title ${el.title}`} />
+            <p>Author: {el.author === null ? "Sin Datos" : el.author}</p>
+            {
+              <Image
+                src={
+                  el.urlToImage === null
+                    ? "https://placeimg.com/1200/300/people"
+                    : el.urlToImage
+                }
+                width={1200}
+                height={300}
+                alt={`Image ${el.title}`}
+                quality={50}
+                layout="responsive"
+                priority={i < 2}
+                blurDataURL="blur"
+              />
+            }
             <p>{el.description}</p>
           </div>
         ))}
@@ -17,20 +34,21 @@ export default function Home({ articles }) {
     </Layout>
   );
 }
+
 export async function getStaticProps() {
-  const API_KEY = "fff7f3d2b9054cf6ba44bcfac086b121";
   const res = await fetch(
-    `https://newsapi.org/v2/everything?q=Apple&from=2022-08-16&sortBy=popularity&apiKey=${API_KEY}`,
+    `https://newsapi.org/v2/top-headlines?country=cu&apiKey=${env.customKey}`,
     {
       method: "GET",
     }
   );
   const { articles } = await res.json();
-  const error = res.ok.status;
+  const error = (res.statusCode = 404);
 
   return {
     props: {
       articles,
+      error,
     },
   };
 }

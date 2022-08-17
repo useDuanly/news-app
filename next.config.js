@@ -4,24 +4,26 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: [
-      "image.cnbcfm.com",
-      "cdn.mobilesyrup.com",
-      "s1.eestatic.com",
-      "images0.persgroep.net",
-      "static.independent.co.uk",
-      "www.handelsblatt.com",
-      "akm-img-a-in.tosshub.com",
-      "responsive.fxempire.com",
-      "img.technews.tw",
-      "images.moneycontrol.com",
-      "cdn.iz.ru",
-      "i.dailymail.co.uk",
+      "gdb.voanews.com",
+      "www.americaeconomia.com",
+      "www.radioflorida.icrt.cu",
+      "www.prensa-latina.cu",
+      "www.cubahora.cu",
+      "ichef.bbci.co.uk",
+      "placeimg.com",
+      "www.radiohc.cu",
+      "cdn1.celebritax.com",
+      "www.radiorebelde.cu",
+      "www.tvcubana.icrt.cu",
+      "www.periodico26.cu",
+      "www.escambray.cu",
+      "img.asmedia.epimg.net",
+      "www.acn.cu",
     ],
   },
-  experimental: {
-    images: {
-      allowFutureImage: true,
-    },
+
+  env: {
+    customKey: "fff7f3d2b9054cf6ba44bcfac086b121",
   },
 };
 
