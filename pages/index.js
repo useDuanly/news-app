@@ -24,7 +24,6 @@ export default function Home({ articles, error }) {
                 quality={50}
                 layout="responsive"
                 priority={i < 2}
-                blurDataURL="blur"
               />
             }
             <p>{el.description}</p>
